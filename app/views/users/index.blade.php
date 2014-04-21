@@ -1,8 +1,8 @@
-@extends('/users/layout')
+@extends('layouts.sidebar')
 
 @section('content')
     <div class="page-header">
-        <h1>All Users <small>Users FOlder!</small></h1>
+        <h1>All Users <small>Users Folder!</small></h1>
     </div>
 
     <div class="panel panel-default">
@@ -19,7 +19,6 @@
                 <tr>
                     <th>Id</th>
                     <th>Username</th>
-                    <th>Password</th>
                     <th>Email</th>
                    <th>First Name</th>
                    <th>Last Name</th>
@@ -33,7 +32,6 @@
                 <tr>
                     <td>{{ $user->id }}</td>
                     <td>{{ $user->username }}</td>
-                   <td>{{ $user->password }}</td>
                    <td>{{ $user->email }}</td>
                    <td>{{ $user->first_name }}</td>
                    <td>{{ $user->last_name }}</td>

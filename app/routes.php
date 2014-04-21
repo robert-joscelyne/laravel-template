@@ -17,6 +17,27 @@ Route::get('/', function()
    return View::make('index');
 });
 
+
+Route::get('/login', function()
+{
+   return View::make('login_form');
+});
+
+Route::post('/login', function()
+{
+   $credentials = Input::only('email', 'password');
+   $remember = Input::has('remember');
+   if (Auth::attempt($credentials, $remember))
+   {
+      return Redirect::intended('/');
+   }
+});
+
+/**
+ * Groups of routes that needs authentication to access.
+ */
+Route::group(array('before' => 'auth'), function()
+{
 Route::get('/user', function()
 {
    return View::make('create_user_form');
@@ -50,22 +71,12 @@ Route::get('/logout', function()
    return View::make('logout');
 });
 
-Route::get('/login', function()
-{
-   return View::make('login_form');
-});
-
-Route::post('/login', function()
-{
-   $credentials = Input::only('email', 'password');
-   $remember = Input::has('remember');
-   if (Auth::attempt($credentials, $remember))
-   {
-      return Redirect::intended('/');
-   }
-});
-
 // Contact Maintenance
+
+Route::model('contact', 'Contact');
+Route::model('committee', 'Committee');
+Route::model('user', 'User');
+
 // Show pages.
 Route::get('/contacts', 'ContactsController@index');
 //Route::get('/contacts',
@@ -98,3 +109,4 @@ Route::get('/users/delete/{user}', 'UsersController@delete');
 Route::post('/users/create', 'UsersController@handleCreate');
 Route::post('/users/edit', 'UsersController@handleEdit');
 Route::post('/users/delete', 'UsersController@handleDelete');
+});

@@ -189,4 +189,9 @@ return array(
 
 	),
 
+      'unsecured_pages' => array(
+         '/',
+         '/login_form',
+      ),
+
 );

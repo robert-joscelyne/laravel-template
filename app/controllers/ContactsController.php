@@ -26,9 +26,12 @@ class ContactsController extends BaseController
    {
       // Handle create form submission.
       $contact = new Contact;
-      $contact->title        = Input::get('title');
-      $contact->publisher    = Input::get('publisher');
-      $contact->complete     = Input::has('complete');
+      $contact->user        = Input::get('user');
+      $contact->location    = Input::get('location');
+      $contact->name    = Input::get('name');
+      $contact->address    = Input::get('address');
+      $contact->phone    = Input::get('phone');
+      $contact->active     = Input::has('active');
       $contact->save();
 
       return Redirect::action('ContactsController@index');
@@ -43,10 +46,12 @@ class ContactsController extends BaseController
    public function handleEdit()
    {
       // Handle edit form submission.
-      $contact = Contact::findOrFail(Input::get('id'));
-      $contact->title        = Input::get('title');
-      $contact->publisher    = Input::get('publisher');
-      $contact->complete     = Input::has('complete');
+      $contact->user        = Input::get('user');
+      $contact->location    = Input::get('location');
+      $contact->name    = Input::get('name');
+      $contact->address    = Input::get('address');
+      $contact->phone    = Input::get('phone');
+      $contact->active     = Input::has('active');
       $contact->save();
 
       return Redirect::action('ContactsController@index');
@@ -55,7 +60,7 @@ class ContactsController extends BaseController
    public function delete(Contact $contact)
    {
       // Show delete confirmation page.
-      return View::make('delete', compact('contact'));
+      return View::make('contacts/delete', compact('contact'));
    }
 
    public function handleDelete()

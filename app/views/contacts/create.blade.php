@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layouts.default')
 
 @section('content')
     <div class="page-header">
@@ -7,16 +7,28 @@
 
     <form action="{{ action('ContactsController@handleCreate') }}" method="post" role="form">
         <div class="form-group">
-            <label for="title">Title</label>
-            <input type="text" class="form-control" name="title" />
+            <label for="user">User</label>
+            <input type="text" class="form-control" name="user" />
         </div>
         <div class="form-group">
-            <label for="publisher">Publisher</label>
-            <input type="text" class="form-control" name="publisher" />
+            <label for="Location">Location</label>
+            <input type="text" class="form-control" name="location" />
         </div>
+       <div class="form-group">
+          <label for="name">name</label>
+          <input type="text" class="form-control" name="name" />
+       </div>
+       <div class="form-group">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" name="address" />
+       </div>
+       <div class="form-group">
+          <label for="phone">phone</label>
+          <input type="text" class="form-control" name="phone" />
+       </div>
         <div class="checkbox">
-            <label for="complete">
-                <input type="checkbox" name="complete" /> Complete?
+            <label for="active">
+                <input type="checkbox" name="active" /> Active?
             </label>
         </div>
         <input type="submit" value="Create" class="btn btn-primary" />
