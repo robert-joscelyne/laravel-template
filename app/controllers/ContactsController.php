@@ -26,7 +26,9 @@ class ContactsController extends BaseController
    {
       // Handle create form submission.
       $contact = new Contact;
-      $contact->user        = Input::get('user');
+      //$contact->user        = Input::get('user');
+      $user_id = Auth::user()->id;
+      $contact->user = $user_id;
       $contact->location    = Input::get('location');
       $contact->name    = Input::get('name');
       $contact->address    = Input::get('address');

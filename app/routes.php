@@ -17,10 +17,17 @@ Route::get('/', function()
    return View::make('index');
 });
 
-
 Route::get('/login', function()
 {
-   return View::make('login_form');
+   //return View::make('login_form');
+   return View::make('login');
+});
+
+
+Route::get('/post', function()
+{
+   //return View::make('login_form');
+   return View::make('debug.post-values');
 });
 
 Route::post('/login', function()
@@ -30,6 +37,13 @@ Route::post('/login', function()
    if (Auth::attempt($credentials, $remember))
    {
       return Redirect::intended('/');
+      //return View::make('debug.post-values');
+   }
+   else
+   {
+      return Response::make("Bad Password");
+      //return Response::make($credentials );
+      return View::make('debug.post-values');
    }
 });
 

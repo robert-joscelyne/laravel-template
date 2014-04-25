@@ -15,7 +15,7 @@
             <input type="text" class="form-control" name="location" />
         </div>
        <div class="form-group">
-          <label for="name">name</label>
+          <label for="name">Name</label>
           <input type="text" class="form-control" name="name" />
        </div>
        <div class="form-group">
@@ -23,7 +23,7 @@
           <input type="text" class="form-control" name="address" />
        </div>
        <div class="form-group">
-          <label for="phone">phone</label>
+          <label for="phone">Phone</label>
           <input type="text" class="form-control" name="phone" />
        </div>
         <div class="checkbox">

@@ -1,13 +1,6 @@
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-   <div class="container">
+<div class="navbar navbar-fixed-top" role="navigation">
       <div class="navbar-header">
-         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-         </button>
-         <a class="navbar-brand" href="#">Project name</a>
+         <a class="navbar-brand" href="#"><img src="/img/logo.png"</a>
       </div>
       <div class="navbar-collapse collapse">
          <?php
@@ -15,6 +8,8 @@
          {
             $email = Auth::user()->email;
             echo "<p class='navbar-brand'>$email</p>";
+            $uuid = uniqid ($prefix = "", $more_entropy = true);
+            echo "<p class='navbar-brand'>$uuid</p>";
             echo "<a class='navbar-brand navbar-right' href='/logout'>Logout</a>";
          }
          else
@@ -33,5 +28,5 @@
          }
          ?>
       </div><!--/.navbar-collapse -->
-   </div>
+      <div class="headerdiv">&nbsp;</div>
 </div>
